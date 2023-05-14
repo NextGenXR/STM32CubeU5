@@ -27,6 +27,8 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "stm32u5xx_hal_def.h"
 
+#ifdef HAL_EXTI_MODULE_ENABLED
+
 /** @addtogroup STM32U5xx_HAL_Driver
   * @{
   */
@@ -388,6 +390,8 @@ uint32_t          HAL_EXTI_GetLockAttributes(void);
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
 
 #endif /* STM32U5xx_HAL_EXTI_H */

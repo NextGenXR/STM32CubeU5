@@ -27,6 +27,8 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "stm32u5xx_hal_def.h"
 
+#ifdef HAL_UART_MODULE_ENABLED
+
 /** @addtogroup STM32U5xx_HAL_Driver
   * @{
   */
@@ -1745,6 +1747,8 @@ extern const uint16_t UARTPrescTable[12];
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
 
 #endif /* STM32U5xx_HAL_UART_H */

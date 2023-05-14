@@ -27,6 +27,8 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "stm32u5xx_hal_def.h"
 
+#ifdef HAL_PWR_MODULE_ENABLED
+
 /** @addtogroup STM32U5xx_HAL_Driver
   * @{
   */
@@ -805,5 +807,7 @@ HAL_StatusTypeDef HAL_PWR_GetConfigAttributes(uint32_t Item, uint32_t *pAttribut
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
+
+#endif
 
 #endif /* STM32U5xx_HAL_PWR_H */

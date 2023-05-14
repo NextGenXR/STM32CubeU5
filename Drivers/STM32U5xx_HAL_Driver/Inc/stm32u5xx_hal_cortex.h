@@ -27,6 +27,8 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "stm32u5xx_hal_def.h"
 
+#ifdef HAL_CORTEX_MODULE_ENABLED
+
 /** @addtogroup STM32U5xx_HAL_Driver
   * @{
   */
@@ -371,6 +373,8 @@ void HAL_MPU_ConfigMemoryAttributes_NS(const MPU_Attributes_InitTypeDef *const p
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
 
 #endif /* __STM32U5xx_HAL_CORTEX_H */

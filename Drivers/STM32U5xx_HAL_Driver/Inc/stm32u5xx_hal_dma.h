@@ -27,6 +27,8 @@ extern "C" {
 /* Includes ----------------------------------------------------------------------------------------------------------*/
 #include "stm32u5xx_hal_def.h"
 
+#ifdef HAL_DMA_MODULE_ENABLED
+
 /** @addtogroup STM32U5xx_HAL_Driver
   * @{
   */
@@ -915,6 +917,8 @@ HAL_StatusTypeDef HAL_DMA_GetLockChannelAttributes(DMA_HandleTypeDef const *cons
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
 
 #endif /* STM32U5xx_HAL_DMA_H */

@@ -27,6 +27,8 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "stm32u5xx_hal_def.h"
 
+#ifdef HAL_I2C_MODULE_ENABLED
+
 /** @addtogroup STM32U5xx_HAL_Driver
   * @{
   */
@@ -844,5 +846,7 @@ uint32_t             HAL_I2C_GetError(const I2C_HandleTypeDef *hi2c);
 }
 #endif
 
+
+#endif
 
 #endif /* STM32U5xx_HAL_I2C_H */

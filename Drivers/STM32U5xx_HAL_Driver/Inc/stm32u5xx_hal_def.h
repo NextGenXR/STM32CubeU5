@@ -30,11 +30,6 @@ extern "C" {
 #include <arm_cmse.h>
 #endif /* __ARM_FEATURE_CMSE */
 
-#include "stm32u5xx.h"
-#include "Legacy/stm32_hal_legacy.h"  /* Aliases file for old names compatibility */
-#include <stddef.h>
-#include <math.h>
-
 /* Exported types ------------------------------------------------------------*/
 
 /**
@@ -56,6 +51,13 @@ typedef enum
   HAL_UNLOCKED = 0x00,
   HAL_LOCKED   = 0x01
 } HAL_LockTypeDef;
+
+
+#include "stm32u5xx.h"
+#include "Legacy/stm32_hal_legacy.h"  /* Aliases file for old names compatibility */
+#include <stddef.h>
+#include <math.h>
+
 
 /* Exported macros -----------------------------------------------------------*/
 

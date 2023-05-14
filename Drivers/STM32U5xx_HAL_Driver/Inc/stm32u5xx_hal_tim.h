@@ -27,6 +27,8 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "stm32u5xx_hal_def.h"
 
+#ifdef HAL_TIM_MODULE_ENABLED
+
 /** @addtogroup STM32U5xx_HAL_Driver
   * @{
   */
@@ -2512,6 +2514,8 @@ void TIM_ResetCallback(TIM_HandleTypeDef *htim);
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
 
 #endif /* STM32U5xx_HAL_TIM_H */

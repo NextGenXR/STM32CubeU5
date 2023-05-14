@@ -27,6 +27,8 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "stm32u5xx_hal_def.h"
 
+#ifdef HAL_RTC_MODULE_ENABLED
+
 /** @addtogroup STM32U5xx_HAL_Driver
   * @{
   */
@@ -964,6 +966,8 @@ uint8_t            RTC_Bcd2ToByte(uint8_t Value);
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
 
 #endif /* STM32U5xx_HAL_RTC_H */
