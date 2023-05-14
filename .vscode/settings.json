@@ -1,0 +1,3 @@
+{
+    "esbonio.sphinx.confDir": "${workspaceFolder}\\Middlewares\\Third_Party\\trustedfirmware\\build_docs"
+}
