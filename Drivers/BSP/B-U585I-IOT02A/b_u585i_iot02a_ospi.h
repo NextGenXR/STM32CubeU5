@@ -21,6 +21,8 @@
 #ifndef B_U585I_IOT02A_OSPI_H
 #define B_U585I_IOT02A_OSPI_H
 
+#ifdef HAL_OSPI_ENABLED
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -392,6 +394,8 @@ HAL_StatusTypeDef MX_OSPI_RAM_Init(OSPI_HandleTypeDef *hospi, MX_OSPI_InitTypeDe
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
 
 #endif /* B_U585I_IOT02A_OSPI_H */

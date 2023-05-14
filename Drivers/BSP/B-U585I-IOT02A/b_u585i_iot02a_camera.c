@@ -112,6 +112,8 @@
       BSP_CAMERA_FrameEventCallback(), BSP_CAMERA_VsyncEventCallback(), BSP_CAMERA_ErrorCallback()
 ------------------------------------------------------------------------------*/
 
+#ifdef HAL_DCMI_ENABLED
+
 /* Includes ------------------------------------------------------------------*/
 #include "b_u585i_iot02a_camera.h"
 #include "b_u585i_iot02a_bus.h"
@@ -1785,3 +1787,5 @@ static int32_t OV5640_Probe(uint32_t Resolution, uint32_t PixelFormat)
 /**
   * @}
   */
+
+#endif /* ENABLED */

@@ -73,6 +73,8 @@
   ******************************************************************************
   */
 
+#ifdef HAL_SAI_ENABLED
+
 /* Includes ------------------------------------------------------------------*/
 #include "b_u585i_iot02a_audio.h"
 
@@ -1648,3 +1650,5 @@ __weak HAL_StatusTypeDef MX_MDF1_Init(MDF_HandleTypeDef *hMdfBlock, MX_MDF_InitT
 /**
   * @}
   */
+
+#endif

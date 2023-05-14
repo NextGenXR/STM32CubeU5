@@ -25,6 +25,8 @@
 #include "b_u585i_iot02a_usbpd_pwr.h"
 #include "b_u585i_iot02a_bus.h"
 
+#ifdef ADC_ENABLED
+
 /** @addtogroup BSP
   * @{
   */
@@ -1844,3 +1846,4 @@ static int32_t PWR_TCPP0203_ConvertADCDataToCurrent(uint32_t ADCData)
   * @}
   */
 
+#endif

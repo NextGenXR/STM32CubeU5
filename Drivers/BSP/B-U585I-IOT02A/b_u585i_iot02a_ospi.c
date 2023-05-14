@@ -80,6 +80,8 @@
   ******************************************************************************
   */
 
+#ifdef HAL_OSPI_ENABLED
+
 /* Includes ------------------------------------------------------------------*/
 #include "b_u585i_iot02a_ospi.h"
 
@@ -2050,3 +2052,4 @@ static void OSPI_RAM_MspDeInit(const OSPI_HandleTypeDef *hospi)
   * @}
   */
 
+#endif /* ENABLED */
