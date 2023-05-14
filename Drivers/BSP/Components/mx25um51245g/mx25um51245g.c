@@ -35,7 +35,10 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "stm32xxxx_hal.h"
 #include "mx25um51245g.h"
+
+#ifdef MX25UM51245G_ENABLED
 
 /** @addtogroup BSP
   * @{
@@ -1744,5 +1747,7 @@ int32_t MX25UM51245G_EnterPowerDown(XSPI_HandleTypeDef *Ctx, MX25UM51245G_Interf
 /**
   * @}
   */
+
+#endif
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

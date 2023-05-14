@@ -35,7 +35,11 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include "stm32xxxx_hal.h"
 #include "mx25lm51245g.h"
+
+#if defined(HAL_OSPI_MODULE_ENABLED) && defined(MX25LM51245G_ENABLED)
+
 
 /** @addtogroup BSP
   * @{
@@ -1744,3 +1748,5 @@ int32_t MX25LM51245G_EnterPowerDown(OSPI_HandleTypeDef *Ctx, MX25LM51245G_Interf
 /**
   * @}
   */
+
+#endif

@@ -28,6 +28,8 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "mx25lm51245g_conf.h"
 
+#ifdef MX25UM51245G_ENABLED
+
 /** @addtogroup BSP
   * @{
   */
@@ -362,6 +364,8 @@ int32_t MX25LM51245G_EnterPowerDown(OSPI_HandleTypeDef *Ctx, MX25LM51245G_Interf
 #ifdef __cplusplus
 }
 #endif
+
+#endif /* ENABLED */
 
 #endif /* MX25LM51245G_H */
 

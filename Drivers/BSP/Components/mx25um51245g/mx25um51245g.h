@@ -25,7 +25,10 @@
 extern "C" {
 #endif
 
+#ifdef MX25UM51245G_ENABLED
+
 /* Includes ------------------------------------------------------------------*/
+#include "stm32xxxx_hal.h"
 #include "mx25um51245g_conf.h"
 
 /** @addtogroup BSP
@@ -360,6 +363,8 @@ int32_t MX25UM51245G_EnterPowerDown(XSPI_HandleTypeDef *Ctx, MX25UM51245G_Interf
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
 
 #endif /* MX25UM51245G_H */
