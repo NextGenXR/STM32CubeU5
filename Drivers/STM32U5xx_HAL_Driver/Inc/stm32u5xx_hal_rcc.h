@@ -1033,6 +1033,7 @@ typedef struct
                                                     UNUSED(tmpreg); \
                                                   } while(0)
 
+#if defined(PKA)
 #define __HAL_RCC_PKA_CLK_ENABLE()             do { \
                                                     __IO uint32_t tmpreg; \
                                                     SET_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_PKAEN); \
@@ -1040,6 +1041,7 @@ typedef struct
                                                     tmpreg = READ_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_PKAEN); \
                                                     UNUSED(tmpreg); \
                                                   } while(0)
+#endif /* PKA */
 
 #if defined(SAES)
 #define __HAL_RCC_SAES_CLK_ENABLE()         do { \
@@ -1061,6 +1063,7 @@ typedef struct
                                                   } while(0)
 #endif /* OCTOSPIM */
 
+#if defined(OTFDEC1)
 #define __HAL_RCC_OTFDEC1_CLK_ENABLE()         do { \
                                                     __IO uint32_t tmpreg; \
                                                     SET_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_OTFDEC1EN); \
@@ -1068,6 +1071,7 @@ typedef struct
                                                     tmpreg = READ_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_OTFDEC1EN); \
                                                     UNUSED(tmpreg); \
                                                   } while(0)
+#endif /* OTFDEC1 */
 
 #if defined(OTFDEC2)
 #define __HAL_RCC_OTFDEC2_CLK_ENABLE()         do { \
@@ -1195,7 +1199,9 @@ typedef struct
 
 #define __HAL_RCC_RNG_CLK_DISABLE()            CLEAR_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_RNGEN)
 
+#if defined(PKA)
 #define __HAL_RCC_PKA_CLK_DISABLE()            CLEAR_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_PKAEN)
+#endif /* PKA */
 
 #if defined(SAES)
 #define __HAL_RCC_SAES_CLK_DISABLE()           CLEAR_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_SAESEN)
@@ -1205,7 +1211,9 @@ typedef struct
 #define __HAL_RCC_OSPIM_CLK_DISABLE()          CLEAR_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_OCTOSPIMEN)
 #endif /* OCTOSPIM */
 
+#if defined(OTFDEC1)
 #define __HAL_RCC_OTFDEC1_CLK_DISABLE()        CLEAR_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_OTFDEC1EN)
+#endif /* OTFDEC1 */
 
 #if defined(OTFDEC2)
 #define __HAL_RCC_OTFDEC2_CLK_DISABLE()        CLEAR_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_OTFDEC2EN)
@@ -2128,7 +2136,9 @@ typedef struct
 
 #define __HAL_RCC_RNG_IS_CLK_ENABLED()          (READ_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_RNGEN) != 0U)
 
+#if defined(PKA)
 #define __HAL_RCC_PKA_IS_CLK_ENABLED()          (READ_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_PKAEN) != 0U)
+#endif /* PKA */
 
 #if defined(SAES)
 #define __HAL_RCC_SAES_IS_CLK_ENABLED()         (READ_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_SAESEN) != 0U)
@@ -2138,7 +2148,9 @@ typedef struct
 #define __HAL_RCC_OSPIM_IS_CLK_ENABLED()        (READ_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_OCTOSPIMEN) != 0U)
 #endif /* OCTOSPIM */
 
+#if defined(OTFDEC1)
 #define __HAL_RCC_OTFDEC1_IS_CLK_ENABLED()      (READ_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_OTFDEC1EN) != 0U)
+#endif /* OTFDEC1 */
 
 #if defined(OTFDEC2)
 #define __HAL_RCC_OTFDEC2_IS_CLK_ENABLED()      (READ_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_OTFDEC2EN) != 0U)
@@ -2227,7 +2239,9 @@ typedef struct
 
 #define __HAL_RCC_RNG_IS_CLK_DISABLED()         (READ_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_RNGEN) == 0U)
 
+#if defined(PKA)
 #define __HAL_RCC_PKA_IS_CLK_DISABLED()         (READ_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_PKAEN) == 0U)
+#endif /* PKA */
 
 #if defined(SAES)
 #define __HAL_RCC_SAES_IS_CLK_DISABLED()        (READ_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_SAESEN) == 0U)
@@ -2237,7 +2251,9 @@ typedef struct
 #define __HAL_RCC_OSPIM_IS_CLK_DISABLED()       (READ_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_OCTOSPIMEN) == 0U)
 #endif /* OCTOSPIM */
 
+#if defined(OTFDEC1)
 #define __HAL_RCC_OTFDEC1_IS_CLK_DISABLED()     (READ_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_OTFDEC1EN) == 0U)
+#endif /* OTFDEC1 */
 
 #if defined (OTFDEC2)
 #define __HAL_RCC_OTFDEC2_IS_CLK_DISABLED()     (READ_BIT(RCC->AHB2ENR1, RCC_AHB2ENR1_OTFDEC2EN) == 0U)
@@ -2706,7 +2722,9 @@ typedef struct
 
 #define __HAL_RCC_RNG_FORCE_RESET()           SET_BIT(RCC->AHB2RSTR1, RCC_AHB2RSTR1_RNGRST)
 
+#if defined(PKA)
 #define __HAL_RCC_PKA_FORCE_RESET()           SET_BIT(RCC->AHB2RSTR1, RCC_AHB2RSTR1_PKARST)
+#endif /* PKA */
 
 #if defined(SAES)
 #define __HAL_RCC_SAES_FORCE_RESET()          SET_BIT(RCC->AHB2RSTR1, RCC_AHB2RSTR1_SAESRST)
@@ -2716,7 +2734,9 @@ typedef struct
 #define __HAL_RCC_OSPIM_FORCE_RESET()         SET_BIT(RCC->AHB2RSTR1, RCC_AHB2RSTR1_OCTOSPIMRST)
 #endif /* OCTOSPIM */
 
+#if defined(OTFDEC1)
 #define __HAL_RCC_OTFDEC1_FORCE_RESET()       SET_BIT(RCC->AHB2RSTR1, RCC_AHB2RSTR1_OTFDEC1RST)
+#endif /* OTFDEC1 */
 
 #if defined(OTFDEC2)
 #define __HAL_RCC_OTFDEC2_FORCE_RESET()       SET_BIT(RCC->AHB2RSTR1, RCC_AHB2RSTR1_OTFDEC2RST)
@@ -2794,7 +2814,9 @@ typedef struct
 
 #define __HAL_RCC_RNG_RELEASE_RESET()         CLEAR_BIT(RCC->AHB2RSTR1, RCC_AHB2RSTR1_RNGRST)
 
+#if defined(PKA)
 #define __HAL_RCC_PKA_RELEASE_RESET()         CLEAR_BIT(RCC->AHB2RSTR1, RCC_AHB2RSTR1_PKARST)
+#endif /* PKA */
 
 #if defined(SAES)
 #define __HAL_RCC_SAES_RELEASE_RESET()        CLEAR_BIT(RCC->AHB2RSTR1, RCC_AHB2RSTR1_SAESRST)
@@ -2804,7 +2826,9 @@ typedef struct
 #define __HAL_RCC_OSPIM_RELEASE_RESET()       CLEAR_BIT(RCC->AHB2RSTR1, RCC_AHB2RSTR1_OCTOSPIMRST)
 #endif /* OCTOSPIM */
 
+#if defined(OTFDEC1)
 #define __HAL_RCC_OTFDEC1_RELEASE_RESET()     CLEAR_BIT(RCC->AHB2RSTR1, RCC_AHB2RSTR1_OTFDEC1RST)
+#endif /* OTFDEC1 */
 
 #if defined(OTFDEC2)
 #define __HAL_RCC_OTFDEC2_RELEASE_RESET()     CLEAR_BIT(RCC->AHB2RSTR1, RCC_AHB2RSTR1_OTFDEC2RST)
@@ -3292,7 +3316,9 @@ typedef struct
 
 #define __HAL_RCC_RNG_CLK_SLEEP_ENABLE()            SET_BIT(RCC->AHB2SMENR1, RCC_AHB2SMENR1_RNGSMEN)
 
+#if defined(PKA)
 #define __HAL_RCC_PKA_CLK_SLEEP_ENABLE()            SET_BIT(RCC->AHB2SMENR1, RCC_AHB2SMENR1_PKASMEN)
+#endif /* PKA */
 
 #if defined(SAES)
 #define __HAL_RCC_SAES_CLK_SLEEP_ENABLE()           SET_BIT(RCC->AHB2SMENR1, RCC_AHB2SMENR1_SAESSMEN)
@@ -3302,7 +3328,9 @@ typedef struct
 #define __HAL_RCC_OCTOSPIM_CLK_SLEEP_ENABLE()       SET_BIT(RCC->AHB2SMENR1, RCC_AHB2SMENR1_OCTOSPIMSMEN)
 #endif /* OCTOSPIM */
 
+#if defined(OTFDEC1)
 #define __HAL_RCC_OTFDEC1_CLK_SLEEP_ENABLE()        SET_BIT(RCC->AHB2SMENR1, RCC_AHB2SMENR1_OTFDEC1SMEN)
+#endif /* OTFDEC1 */
 
 #if defined(OTFDEC2)
 #define __HAL_RCC_OTFDEC2_CLK_SLEEP_ENABLE()        SET_BIT(RCC->AHB2SMENR1, RCC_AHB2SMENR1_OTFDEC2SMEN)
@@ -3395,7 +3423,9 @@ typedef struct
 
 #define __HAL_RCC_RNG_CLK_SLEEP_DISABLE()           CLEAR_BIT(RCC->AHB2SMENR1, RCC_AHB2SMENR1_RNGSMEN)
 
+#if defined(PKA)
 #define __HAL_RCC_PKA_CLK_SLEEP_DISABLE()           CLEAR_BIT(RCC->AHB2SMENR1, RCC_AHB2SMENR1_PKASMEN)
+#endif /* PKA */
 
 #if defined(SAES)
 #define __HAL_RCC_SAES_CLK_SLEEP_DISABLE()          CLEAR_BIT(RCC->AHB2SMENR1, RCC_AHB2SMENR1_SAESSMEN)
@@ -3405,7 +3435,9 @@ typedef struct
 #define __HAL_RCC_OCTOSPIM_CLK_SLEEP_DISABLE()      CLEAR_BIT(RCC->AHB2SMENR1, RCC_AHB2SMENR1_OCTOSPIMSMEN)
 #endif /* OCTOSPIM */
 
+#if defined(OTFDEC1)
 #define __HAL_RCC_OTFDEC1_CLK_SLEEP_DISABLE()       CLEAR_BIT(RCC->AHB2SMENR1, RCC_AHB2SMENR1_OTFDEC1SMEN)
+#endif /* OTFDEC1 */
 
 #if defined(OTFDEC2)
 #define __HAL_RCC_OTFDEC2_CLK_SLEEP_DISABLE()       CLEAR_BIT(RCC->AHB2SMENR1, RCC_AHB2SMENR1_OTFDEC2SMEN)
@@ -4067,11 +4099,12 @@ typedef struct
   *            @arg @ref RCC_MSIKRANGE_8  MSIK clock is around 3.072 MHz
   * @retval None
   */
-#define __HAL_RCC_MSIK_STANDBY_RANGE_CONFIG(__MSIKRANGEVALUE__) do {SET_BIT(RCC->ICSCR1, RCC_ICSCR1_MSIRGSEL); \
-                                                                    MODIFY_REG(RCC->CSR, RCC_CSR_MSIKSRANGE,\
-                                                                   (__MSIKRANGEVALUE__) >> (RCC_ICSCR1_MSIKRANGE_Pos -\
-                                                                    RCC_CSR_MSIKSRANGE_Pos));\
-                                                                   } while(0)
+#define __HAL_RCC_MSIK_STANDBY_RANGE_CONFIG(__MSIKRANGEVALUE__) \
+  do { \
+    SET_BIT(RCC->ICSCR1, RCC_ICSCR1_MSIRGSEL); \
+    MODIFY_REG(RCC->CSR, RCC_CSR_MSIKSRANGE, \
+               (__MSIKRANGEVALUE__) >> (RCC_ICSCR1_MSIKRANGE_Pos - RCC_CSR_MSIKSRANGE_Pos)); \
+  } while(0)
 
 /** @brief  Macro to get the Internal Multi Speed oscillator (MSI) clock range in run mode
   * @retval MSI clock range.
